@@ -249,4 +249,15 @@ void Browser::NewWindowForTab() {
 }
 #endif
 
+void Browser::EnableSecureMode(mate::Arguments* args) {
+  if (is_ready()) {
+    args->ThrowError(
+        "app.enableSecureMode() can only be called "
+        "before app is ready");
+    return;
+  }
+
+  secure_mode_enabled_ = true;
+}
+
 }  // namespace atom

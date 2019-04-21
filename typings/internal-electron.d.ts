@@ -13,6 +13,7 @@ declare namespace Electron {
   }
 
   interface App {
+    _isSecureModeEnabled(): boolean;
     _setDefaultAppPaths(packagePath: string | null): void;
     setVersion(version: string): void;
     setDesktopName(name: string): void;

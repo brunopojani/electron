@@ -261,6 +261,9 @@ class Browser : public WindowListObserver {
   bool is_ready() const { return is_ready_; }
   const util::Promise& WhenReady(v8::Isolate* isolate);
 
+  bool secure_mode_enabled() const { return secure_mode_enabled_; }
+  void EnableSecureMode(mate::Arguments* args);
+
  protected:
   // Returns the version of application bundle or executable file.
   std::string GetExecutableFileVersion() const;
@@ -292,6 +295,9 @@ class Browser : public WindowListObserver {
 
   // The browser is being shutdown.
   bool is_shutdown_ = false;
+
+  // TODO
+  bool secure_mode_enabled_ = false;
 
   // Null until/unless the default main message loop is running.
   base::OnceClosure quit_main_message_loop_;
